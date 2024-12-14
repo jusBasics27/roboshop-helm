@@ -1,12 +1,13 @@
- env:
-   CART_ENDPOINT: "cart:8080"
-   DB_HOST: mysql-dev.waferhassan.online
+env:
+  CART_ENDPOINT: "cart:8080"
+  DB_HOST: mysql-dev.waferhassan.online
 
 appName: shipping
 service:
   containerPort: 8080
   type: ClusterIP
   servicePort: 8080
+
 
 #schema:
 #  enabled: true
