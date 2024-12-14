@@ -3,7 +3,7 @@ env:
   MONGO_URL: "mongodb://mongodb-dev.waferhassan.online:27017/catalogue"
 
 
-appName: catelogue
+appName: catalogue
 service:
   containerPort: 8080
   type: ClusterIP
