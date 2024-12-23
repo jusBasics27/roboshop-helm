@@ -14,7 +14,8 @@ schema:
   dbExtention: sql
   env:
     DB_TYPE: mysql
-    APP_GIT_URL: https://github.com/roboshop-devops-project-v3/shipping
+#    APP_GIT_URL: https://github.com/roboshop-devops-project-v3/shipping
+    APP_GIT_URL:  https://github.com/jusBasics27/roboshop-shipping
     DB_HOST: mysql-dev.waferhassan.online
     DB_USER: root
     DB_PASS: RoboShop@1
