@@ -16,10 +16,13 @@ spec:
         env:
           - name: SCHEMA_FILE
             value: db/{{ . }}.{{ $.Values.schema.dbExtention }}
-        {{- range $k, $v := $.Values.schema.env }}
-          - name: {{ $k }}
-            value: {{ $v | quote }}
-        {{- end }}
+        envFrom:
+          - secretRef:
+              name: { { .Values.appName } }
+#        {{- range $k, $v := $.Values.schema.env }}
+#          - name: {{ $k }}
+#            value: {{ $v | quote }}
+#        {{- end }}
       restartPolicy: Never
 {{ end }}
 {{ end }}
