@@ -18,7 +18,7 @@ spec:
             value: db/{{ . }}.{{ $.Values.schema.dbExtention }}
         envFrom:
           - secretRef:
-              name: { { $.Values.appName } }
+              name: {{ $.Values.appName }}-job
 #        {{- range $k, $v := $.Values.schema.env }}
 #          - name: {{ $k }}
 #            value: {{ $v | quote }}
