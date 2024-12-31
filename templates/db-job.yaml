@@ -1,15 +1,19 @@
 {{ if .Values.schema.enabled }}
-{{ range .Values.schema.containers }}
+#{{ range .Values.schema.containers }}
+{{ range $index, $container := .Values.schema.containers }}
 ---
+
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ $.Values.appName }}-{{ . }}-load
+#  name: {{ $.Values.appName }}-{{ . }}-load
+  name: {{ $.Values.appName }}-{{ $container }}-load
 spec:
   template:
     spec:
       containers:
-      - name: {{ $.Values.appName }}-{{ . }}-load
+#      - name: {{ $.Values.appName }}-{{ . }}-load
+      - name: {{ $.Values.appName }}-{{ $container }}-load
         image: 137068255381.dkr.ecr.us-east-1.amazonaws.com/roboshop-schema-load:latest
         imagePullPolicy: Always
         env:
@@ -20,5 +24,9 @@ spec:
             value: {{ $v | quote }}
         {{- end }}
       restartPolicy: Never
+  {{ if ne $index (sub (len .Values.schema.containers) 1) }}
+  # This will add a `backoffLimit` to ensure the next job starts only when the previous one is successful.
+  backoffLimit: 4
+  {{ end }}
 {{ end }}
 {{ end }}
