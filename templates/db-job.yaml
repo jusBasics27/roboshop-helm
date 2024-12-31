@@ -18,15 +18,16 @@ spec:
         imagePullPolicy: Always
         env:
           - name: SCHEMA_FILE
-            value: db/{{ . }}.{{ $.Values.schema.dbExtention }}
+#            value: db/{{ . }}.{{ $.Values.schema.dbExtention }}
+            value: db/{{ $container }}.{{ $.Values.schema.dbExtention }}
         {{- range $k, $v := $.Values.schema.env }}
           - name: {{ $k }}
             value: {{ $v | quote }}
         {{- end }}
       restartPolicy: Never
-  {{ if ne $index (sub (len .Values.schema.containers) 1) }}
-  # This will add a `backoffLimit` to ensure the next job starts only when the previous one is successful.
-  backoffLimit: 4
-  {{ end }}
+    {{ if ne $index (sub (len .Values.schema.containers) 1) }}
+    # This will add a `backoffLimit` to ensure the next job starts only when the previous one is successful.
+    backoffLimit: 4
+    {{ end }}
 {{ end }}
 {{ end }}
