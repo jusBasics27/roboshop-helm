@@ -1,7 +1,7 @@
-env:
-  CATALOGUE_HOST: catalogue
-  CATALOGUE_PORT: "8080"
-  REDIS_HOST: redis-dev.waferhassan.online
+#env:
+#  CATALOGUE_HOST: catalogue
+#  CATALOGUE_PORT: "8080"
+#  REDIS_HOST: redis-dev.waferhassan.online
 
 appName: cart
 service:
