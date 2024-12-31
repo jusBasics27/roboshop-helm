@@ -12,11 +12,11 @@ service:
 schema:
   enabled: true
   dbExtention: js
-  env:
-    DB_TYPE: mongo
-#    APP_GIT_URL: https://github.com/roboshop-devops-project-v3/catalogue
-    APP_GIT_URL:  https://github.com/jusBasics27/roboshop-catalogue
-    DB_HOST: mongodb-dev.waferhassan.online
+#  env:
+#    DB_TYPE: mongo
+##    APP_GIT_URL: https://github.com/roboshop-devops-project-v3/catalogue
+#    APP_GIT_URL:  https://github.com/jusBasics27/roboshop-catalogue
+#    DB_HOST: mongodb-dev.waferhassan.online
   containers:
     - master-data
 
