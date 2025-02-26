@@ -34,8 +34,8 @@ spec:
             httpGet:
               path: /liveness
               port: app
-            initialDelaySeconds: 5
-            periodSeconds: 5
+            initialDelaySeconds: {{ .Values.probes.initialDelaySeconds }}
+            periodSeconds: {{ .Values.probes.periodSeconds }}
 #        env:
 #        {{- range $k, $v := .Values.env }}
 #          - name: {{ $k }}
