@@ -44,3 +44,10 @@ spec:
 #Notes
 #  /readiness should check if the app is ready to serve traffic (e.g., DB connections).
 #  /liveness should check if the app is still running (e.g., checking a heartbeat).
+          resources:
+            requests:
+              memory: { { .Values.resources.requestsMemory } }
+              cpu: { { .Values.resources.requestsCpu } }
+            limits:
+              memory: { { .Values.resources.limitsMemory } }
+              cpu: { { .Values.resources.limitsCpu } }
