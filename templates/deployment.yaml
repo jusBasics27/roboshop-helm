@@ -46,8 +46,8 @@ spec:
 #  /liveness should check if the app is still running (e.g., checking a heartbeat).
           resources:
             requests:
-              memory: { { .Values.resources.requestsMemory } }
-              cpu: { { .Values.resources.requestsCpu } }
+              memory: {{ .Values.resources.requestsMemory }}
+              cpu: {{ .Values.resources.requestsCpu }}
             limits:
-              memory: { { .Values.resources.limitsMemory } }
-              cpu: { { .Values.resources.limitsCpu } }
+              memory: {{ .Values.resources.limitsMemory }}
+              cpu: {{ .Values.resources.limitsCpu }}
