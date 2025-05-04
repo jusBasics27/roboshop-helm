@@ -26,13 +26,13 @@ spec:
             name: {{ .Values.appName }}
         readinessProbe:
           httpGet:
-            path: /readiness
+            path: /health
             port: app
           initialDelaySeconds: 5
           periodSeconds: 5
           livenessProbe:
             httpGet:
-              path: /liveness
+              path: /health
               port: app
             initialDelaySeconds: {{ .Values.probes.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.periodSeconds }}
