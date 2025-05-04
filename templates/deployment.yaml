@@ -30,7 +30,7 @@ spec:
             port: app
           initialDelaySeconds: 5
           periodSeconds: 5
-          livenessProbe:
+        livenessProbe:
             httpGet:
               path: /health
               port: app
@@ -44,7 +44,7 @@ spec:
 #Notes
 #  /readiness should check if the app is ready to serve traffic (e.g., DB connections).
 #  /liveness should check if the app is still running (e.g., checking a heartbeat).
-          resources:
+        resources:
             requests:
               memory: {{ .Values.resources.requestsMemory }}
               cpu: {{ .Values.resources.requestsCpu }}
